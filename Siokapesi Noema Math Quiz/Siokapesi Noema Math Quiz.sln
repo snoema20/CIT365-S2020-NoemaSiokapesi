@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Siokapesi Noema Math Quiz", "Siokapesi Noema Math Quiz\Siokapesi Noema Math Quiz.csproj", "{C00F94F8-BC78-4777-91D2-D309D034A7AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C00F94F8-BC78-4777-91D2-D309D034A7AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C00F94F8-BC78-4777-91D2-D309D034A7AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C00F94F8-BC78-4777-91D2-D309D034A7AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C00F94F8-BC78-4777-91D2-D309D034A7AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E01B92A7-0071-4534-9074-356DDD960C77}
+	EndGlobalSection
+EndGlobal
