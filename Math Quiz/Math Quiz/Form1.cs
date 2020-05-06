@@ -13,7 +13,7 @@ namespace Math_Quiz
         int dividend, divisor;
         int text;
         int timeLeft;
-        int addend1;
+        private readonly int addend1;
         int addend2;
         int minuend;
         int subtrahend;
