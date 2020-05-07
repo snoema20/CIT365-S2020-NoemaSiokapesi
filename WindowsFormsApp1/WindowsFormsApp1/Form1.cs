@@ -10,13 +10,16 @@ using System.Windows.Forms;
 
 namespace MegaDesk_Noema
 {
-    public partial class Form1 : Form
+    public partial class HomeForm : Form
     {
-        public object ViewSearchQuotes { get; private set; }
-
-        public Form1()
+        public HomeForm()
         {
             InitializeComponent();
+        }
+
+        private void InitializeComponent()
+        {
+            throw new NotImplementedException();
         }
 
         private void NewQuote_Click(object sender, EventArgs e)
@@ -25,29 +28,30 @@ namespace MegaDesk_Noema
             NewQuoteForm.Tag = this;
             NewQuoteForm.Show();
             Hide();
-        
-    }
-    private void ViewAll_Click(object sender, EventArgs e)
-    {
-        ViewQuotes ViewQuotesForm = new ViewQuotes();
-        ViewQuotesForm.Tag = this;
-        ViewQuotesForm.Show();
-        Hide();
-    }
-    private void Search_Click(object sender, EventArgs e)
-    {
-            SearchQuotes searchQuotes = new SearchQuotes()
+        }
+
+        private void ViewAll_Click(object sender, EventArgs e)
+        {
+            ViewQuotes ViewQuotesForm = new ViewQuotes();
+            ViewQuotesForm.Tag = this;
+            ViewQuotesForm.Show();
+            Hide();
+        }
+
+        private void Search_Click(object sender, EventArgs e)
+        {
+            SearchQuotes ViewSearchQuotes = new SearchQuotes()
             {
                 Tag = this,
             };
-            SearchQuotes ViewSearchQuote = searchQuotes;
-            _ = ViewSearchQuotes.Show();
+
+            ViewSearchQuotes.Show();
             Hide();
-    }
-    private void Exit_Click(object sender, EventArgs e)
-    {
-        Close();
+        }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
-}
-    
