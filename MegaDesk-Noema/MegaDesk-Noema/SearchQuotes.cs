@@ -16,5 +16,12 @@ namespace MegaDesk_Noema
         {
             InitializeComponent();
         }
+
+        private void Close_Click(object sender, EventArgs e)
+        {
+            MainMenu viewMainMenu = (MainMenu)Tag;
+            viewMainMenu.Show();
+            Close();
+        }
     }
 }

@@ -60,6 +60,9 @@
     <Compile Include="DisplayQuote.Designer.cs">
       <DependentUpon>DisplayQuote.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>

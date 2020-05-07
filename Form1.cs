@@ -99,11 +99,10 @@ namespace Math_Quiz
             startButton.Enabled = false;
         }
 
-        private void timer1_Tick(object sender, EventArgs e);
-        
-        
-            if (CheckTheAnswer);
-            
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (CheckTheAnswer())
+            {
                 // If CheckTheAnswer() returns true, then the user 
                 // got the answer right. Stop the timer  
                 // and show a MessageBox.
@@ -114,7 +113,7 @@ namespace Math_Quiz
             }
 
 
-      else if (timeLeft > 0)
+            else if (timeLeft > 0)
             {
 
                 //change the color of the time to red
@@ -148,7 +147,7 @@ namespace Math_Quiz
 
                 startButton.Enabled = true;
             }
-        
+        }
 
         private bool CheckTheAnswer() {
             if ((addend1 + addend2 == sum.Value)
@@ -165,9 +164,11 @@ namespace Math_Quiz
 
         private void sum_ValueChanged(object sender, EventArgs e)
         {
-            if (addend1+addend2 == sum.Value) 
-               
-            
+            if (addend1+addend2 == sum.Value) {
+                //This lines of code will play the sound if the answer is correct
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"c:\windows\media\tada.wav");
+                player.Play();
+            }
         }
 
         private void answer_Enter(object sender, EventArgs e)

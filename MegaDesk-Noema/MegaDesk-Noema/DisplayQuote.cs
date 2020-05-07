@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MegaDesk_Noema
+namespace MegaDesk
+
 {
     public partial class DisplayQuote : Form
     {

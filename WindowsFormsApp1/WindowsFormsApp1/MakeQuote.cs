@@ -1,12 +1,20 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace MegaDesk_Noema
 {
     public partial class MakeQuote : Form
     {
+        public object SamplePic { get; private set; }
+
         public MakeQuote()
         {
             InitializeComponent();
+        }
+
+        private void InitializeComponent()
+        {
+            throw new NotImplementedException();
         }
 
         private void CancelNewForm_Click(object sender, EventArgs e)

@@ -10,47 +10,45 @@ using System.Windows.Forms;
 
 namespace MegaDesk_Noema
 {
-    public partial class Form1 : Form
+    public partial class MainMenu : Form
     {
-        public Form1()
+        public MainMenu()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void InitializeComponent()
         {
-
+            throw new NotImplementedException();
         }
 
-        private void _Click(object sender, EventArgs e)
+        private void AddQuote_Click(object sender, EventArgs e)
         {
-
+            AddQuote viewAddQuote = new AddQuote();
+            viewAddQuote.Tag = this;
+            viewAddQuote.Show(this);
+            this.Hide();
         }
 
-        private void exitButton_Click(object sender, EventArgs e)
+        private void ViewQuote_Click(object sender, EventArgs e)
         {
-            // Close the Main Menu Form.
+            ViewAllQuotes viewViewAllQuotes = new ViewAllQuotes();
+            viewViewAllQuotes.Tag = this;
+            viewViewAllQuotes.Show(this);
+            this.Hide();
+        }
+
+        private void SearchQuote_Click(object sender, EventArgs e)
+        {
+            SearchQuotes viewSearchQuotes = new SearchQuotes();
+            viewSearchQuotes.Tag = this;
+            viewSearchQuotes.Show(this);
+            this.Hide();
+        }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
             Close();
-        }
-
-        private void searchButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void viewButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void newquoteButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void boqusButton_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
