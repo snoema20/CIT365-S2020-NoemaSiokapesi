@@ -1,14 +1,24 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace MegaDesk_Noema
 {
-    internal class ViewQuotes
+    public partial class ViewQuotes : Form
     {
-        public Form1 Tag { get; internal set; }
-
-        internal void Show()
+        public ViewQuotes()
         {
-            throw new NotImplementedException();
+            InitializeComponent();
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void ViewQuotes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            HomeForm homeForm = (HomeForm)Tag;
+            homeForm.Show();
         }
     }
 }
