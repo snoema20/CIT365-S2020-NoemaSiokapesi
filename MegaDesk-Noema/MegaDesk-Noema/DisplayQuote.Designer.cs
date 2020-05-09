@@ -8,14 +8,14 @@ namespace MegaDesk_Noema
 	{
 		private object CustomerName;
 		private object quote;
-		private object depthOutput;
-		private object numberOfDrawersOutput;
+		private object depth;
+		private object Drawers;
 		private object NumberOfDrawers;
 		private object surfaceMaterialOutput;
 		private object SurfaceMaterial;
-		private object rushOrderOutput;
+		private object rushOrder;
 		private object dateOutput;
-		private object PriceOutput;
+		private object Price;
 		private object QuotePrice;
 
 		//public DeskQuote Quote { get; }
@@ -53,6 +53,12 @@ namespace MegaDesk_Noema
 		}
 
 		private object widthOutput1;
+
+		public object NumberOfDrawers1
+		{
+			get => this.numberOfDrawers; (values)
+			
+		}
 
 		public object GetwidthOutput()
 		{
