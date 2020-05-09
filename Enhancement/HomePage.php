@@ -34,7 +34,7 @@
                                 <h2>CIT 230: Assignment Portal</h2>
                                 <hr>
                                 <ul>
-           <li>Lesson 02: <a href="HomePage.php">Assignment Link</a></li>  
+           <li>Lesson 02: <a href="Lesson 2/design-principle.html">Assignment Link</a></li>  
            <li>Lesson 03: <a href="Lesson 3/index.html">Assignment Link</a></li>    
            <li>Lesson 04: <a href="Lesson 4/Preston-4.html">Assignment Link</a></li>    
            <li>Lesson 05: <a href="Lesson 5/Preston-5.html">Assignment Link</a></li> 
