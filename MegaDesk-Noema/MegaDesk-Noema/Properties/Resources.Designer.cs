@@ -34,6 +34,8 @@ namespace MegaDesk_Noema.Properties
         {
         }
 
+        public static object Required { get; internal set; }
+
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>

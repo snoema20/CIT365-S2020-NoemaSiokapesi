@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{35C0D566-45DD-4E6F-B5EC-1D5B54C4218F}</ProjectGuid>
+    <ProjectGuid>{834CD8AD-5BC5-4B55-B328-7B3C30FF21D1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>MegaDesk_Noema</RootNamespace>
     <AssemblyName>MegaDesk-Noema</AssemblyName>
@@ -47,21 +47,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddQuote.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddQuote.Designer.cs">
       <DependentUpon>AddQuote.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddQuote1.cs" />
     <Compile Include="Desk.cs" />
     <Compile Include="DeskQuote.cs" />
+    <Compile Include="DesktopMaterial.cs" />
     <Compile Include="DisplayQuote.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DisplayQuote.Designer.cs">
       <DependentUpon>DisplayQuote.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
@@ -69,6 +68,10 @@
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainMenuForm.cs" />
+    <Compile Include="Materials.cs" />
+    <Compile Include="MegaDesk.cs" />
+    <Compile Include="ProductionType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchQuotes.cs">
@@ -77,13 +80,17 @@
     <Compile Include="SearchQuotes.Designer.cs">
       <DependentUpon>SearchQuotes.cs</DependentUpon>
     </Compile>
+    <Compile Include="sender.cs" />
     <Compile Include="ViewAllQuotes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ViewAllQuotes.Designer.cs">
       <DependentUpon>ViewAllQuotes.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Mainmenu.resx">
+    <EmbeddedResource Include="AddQuote.resx">
+      <DependentUpon>AddQuote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

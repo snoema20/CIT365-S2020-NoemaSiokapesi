@@ -1,88 +1,80 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MegaDesk_Noema.Properties;
+using System;
 using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MegaDesk_Noema
 {
-    public partial class AddQuote : UserControl
-    {
-        public AddQuote()
-        {
-            InitializeComponent();
-        }
- private void Close_Click(object sender, EventArgs e)
-        {
-            MainMenu viewMainMenu = (MainMenu)Tag;
-            viewMainMenu.Show();
-            Close();
-        }
+	public partial class AddNewQuote : Form
+	{
+		private object nameRequiredErrorMessage;
+		private object materialSelect;
+		private object rushOrderSelect;
+		private object fullNameInput;
+		private object numberOfDrawers;
+		private object widthUpDown;
+		private object dateLabel;
+		private int value;
+		private DesktopMaterial selectedItem;
 
-        private void Close()
-        {
-            throw new NotImplementedException();
-        }
+		public AddNewQuote()
+		{
+			InitializeComponent();
+			nameRequiredErrorMessage = string.Empty;
+			materialSelect = Enum.GetValues(typeof(DesktopMaterial));
+			rushOrderSelect = Enum.GetValues(typeof(ProductionType)).Cast<Enum>()
+				.Select(p => new
+				{
+					Description = (Attribute.GetCustomAttribute(p.GetType().GetField(p.ToString()), typeof(DescriptionAttribute)) as DescriptionAttribute)?.Description
+								 ?? p.ToString(),
+					Value = p
+				}).ToList();
+			rushOrderSelect = "Description";
+			rushOrderSelect = "Value";
+			dateLabel = DateTime.Today.ToShortDateString();
+		}
+		private void InitializeComponent()
+		{
+			throw new NotImplementedException();
+		}
 
-        internal void Show(MainMenu mainMenu)
-        {
-            throw new NotImplementedException();
-        }
+		private void AddQuote_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			MainMenu mainMenu = new MainMenu();
+			mainMenu.Show();
+		}
 
-        private void Label3_Click(object sender, EventArgs e)
-        {
+		private void GetQuoteButton_Click(object sender, EventArgs e)
+		{
+			if (!string.IsNullOrWhiteSpace(fullNameInput,))
+			{
+				Desk desk = new Desk()
+				{
+					Depth = (int)value,
+					Width = (int)value,
+					NumberOfDrawers = (int)value,
+					SurfaceMaterial = selectedItem
+				};
 
-        }
+				DeskQuote quote = new DeskQuote()
+				{
+					CustomerName = fullNameInput,
+					Desk = desk,
+					ProductionType = (ProductionType)rushOrderSelect,
+					Date = DateTime.Now
+				};
 
-        private void DeskWidth_TextChanged(object sender, EventArgs e)
-        {
+				quote.QuotePrice = quote.GetQuote();
 
-        }
-        private void DeskWidth_Validating(object sender, CancelEventArgs e)
-        {
-            
-        }
-
-        private void AddQuote_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DeskWidth_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Verify that the pressed key isn't CTRL or any non-numeric digit
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-
-            // If you want, you can allow decimal (float) numbers
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void TextBox3_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Verify that the pressed key isn't CTRL or any non-numeric digit
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-
-            // If you want, you can allow decimal (float) numbers
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }
-
-        }
-    }
-    }
-
-   
+				DisplayQuote displayQuote = new DisplayQuote(quote);
+				displayQuote.ShowDialog();
+			}
+			else
+			{
+				nameRequiredErrorMessage = Resources.Required;
+				return;
+			}
+		}
+	}
+}

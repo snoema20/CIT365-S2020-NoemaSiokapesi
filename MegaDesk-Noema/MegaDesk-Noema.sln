@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaDesk-Noema", "MegaDesk-Noema\MegaDesk-Noema.csproj", "{35C0D566-45DD-4E6F-B5EC-1D5B54C4218F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaDesk-Noema", "MegaDesk-Noema\MegaDesk-Noema.csproj", "{834CD8AD-5BC5-4B55-B328-7B3C30FF21D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{35C0D566-45DD-4E6F-B5EC-1D5B54C4218F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{35C0D566-45DD-4E6F-B5EC-1D5B54C4218F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{35C0D566-45DD-4E6F-B5EC-1D5B54C4218F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{35C0D566-45DD-4E6F-B5EC-1D5B54C4218F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{834CD8AD-5BC5-4B55-B328-7B3C30FF21D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{834CD8AD-5BC5-4B55-B328-7B3C30FF21D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{834CD8AD-5BC5-4B55-B328-7B3C30FF21D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{834CD8AD-5BC5-4B55-B328-7B3C30FF21D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {7C2E61C7-8FB7-4A79-856A-B160BFEE28D3}
+		SolutionGuid = {FF5536C6-7FBD-43DC-99FA-0A37533A648D}
 	EndGlobalSection
 EndGlobal

@@ -1,70 +1,72 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using System.ComponentModel;
+using System;
 
-namespace MegaDesk
+namespace MegaDesk_Noema
 {
-    partial class DisplayQuote
-    {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+	public partial class DisplayQuote : Form
+	{
+		private object CustomerName;
+		private object quote;
+		private object depthOutput;
+		private object numberOfDrawersOutput;
+		private object NumberOfDrawers;
+		private object surfaceMaterialOutput;
+		private object SurfaceMaterial;
+		private object rushOrderOutput;
+		private object dateOutput;
+		private object PriceOutput;
+		private object QuotePrice;
 
-        public new SizeF AutoScaleDimensions { get; private set; }
-        public new AutoScaleMode AutoScaleMode { get; private set; }
-        public new Size ClientSize { get; private set; }
-        public new string Name { get; private set; }
-#pragma warning disable CS0114 // Member hides inherited member; missing override keyword
-        public string Text { get; private set; }
-#pragma warning restore CS0114 // Member hides inherited member; missing override keyword
+		//public DeskQuote Quote { get; }
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-#pragma warning disable CS0114 // Member hides inherited member; missing override keyword
-        void Dispose(bool disposing)
-#pragma warning restore CS0114 // Member hides inherited member; missing override keyword
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+		public DisplayQuote()
+		{
+			InitializeComponent();
+			//Quote = quote;
+			SetfullNameOutput(CustomerName);
+			SetwidthOutput($"{quote}in");
+			depthOutput = $"{quote}in";
+			numberOfDrawersOutput = NumberOfDrawers.ToString();
+			surfaceMaterialOutput = SurfaceMaterial.ToString();
+			rushOrderOutput = (Attribute.GetCustomAttribute(quote.GetType().GetField(quote.ToString()), typeof(DescriptionAttribute)) as DescriptionAttribute)?.Description
+								   ?? quote.ToString();
+			dateOutput = ToShortDateString();
+			quotePriceOutput = $"${QuotePrice}";
+		}
 
-        #region Windows Form Designer generated code
+		private object ToShortDateString()
+		{
+			throw new NotImplementedException();
+		}
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
-            this.SuspendLayout();
-            // 
-            // DisplayQuote
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(554, 413);
-            this.Name = "DisplayQuote";
-            this.Text = "Display Quote";
-            this.ResumeLayout(false);
+		private object fullNameOutput1;
 
-        }
+		public object GetfullNameOutput()
+		{
+			return fullNameOutput1;
+		}
 
-        private new void SuspendLayout()
-        {
-            throw new NotImplementedException();
-        }
+		private void SetfullNameOutput(object value)
+		{
+			fullNameOutput1 = value;
+		}
 
-        private new void ResumeLayout(bool v)
-        {
-            throw new NotImplementedException();
-        }
+		private object widthOutput1;
 
-        #endregion
-    }
+		public object GetwidthOutput()
+		{
+			return widthOutput1;
+		}
+
+		private void SetwidthOutput(object value)
+		{
+			widthOutput1 = value;
+		}
+
+		private void InitializeComponent()
+		{
+			throw new NotImplementedException();
+		}
+	}
 }
