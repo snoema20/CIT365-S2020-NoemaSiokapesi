@@ -19,7 +19,12 @@ namespace RazorPagesMovie.Pages.Movies
         }
 
         public IList<Movie> Movie { get; set; }
-
+        [BindProperty(SupportsGet = true)]
+        public string SearchString { get; set; }
+        // Requires using Microsoft.AspNetCore.Mvc.Rendering;
+        public SelectList Genres { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string MovieGenre { get; set; }
         public async Task OnGetAsync()
         {
             Movie = await _context.Movie.ToListAsync();
