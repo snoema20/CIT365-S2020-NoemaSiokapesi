@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿// Unused usings removed.
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using RazorPagesMovie.Models;
+using System;
+using System.Threading.Tasks;
 
 namespace RazorPagesMovie.Pages.Movies
 {
@@ -26,8 +24,6 @@ namespace RazorPagesMovie.Pages.Movies
         [BindProperty]
         public Movie Movie { get; set; }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
