@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
+using System.Net.Mime;
 
 namespace RazorPagesMovie.Models
 {
@@ -28,6 +29,7 @@ namespace RazorPagesMovie.Models
                         Price = 7.99M
                     },
 
+                context.Movie.AddRange(
                     new Movie
                     {
                         Title = "Ghostbusters ",
@@ -35,7 +37,7 @@ namespace RazorPagesMovie.Models
                         Genre = "Comedy",
                         Price = 8.99M
                     },
-
+                  context.Movie.AddRange(
                     new Movie
                     {
                         Title = "Ghostbusters 2",
@@ -43,17 +45,20 @@ namespace RazorPagesMovie.Models
                         Genre = "Comedy",
                         Price = 9.99M
                     },
-
+                    context.Movie.AddRange(
                     new Movie
                     {
                         Title = "Rio Bravo",
                         ReleaseDate = DateTime.Parse("1959-4-15"),
                         Genre = "Western",
                         Price = 3.99M
-                    }
-                );
-                context.SaveChanges();
-            }
-        }
-    }
-}
+                    },
+                 
+
+                    
+    
+    
+            
+       
+       
+    
