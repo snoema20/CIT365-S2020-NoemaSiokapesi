@@ -9,7 +9,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
-using RazorPagesMovie.Models;
+using RazorPagesMovie.Data;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 
 namespace RazorPagesMovie
 {
