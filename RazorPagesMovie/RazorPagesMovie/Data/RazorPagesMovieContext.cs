@@ -8,7 +8,7 @@ namespace RazorPagesMovie.Models
 {
     public class RazorPagesMovieContext : DbContext
     {
-        public RazorPagesMovieContext (DbContextOptions<RazorPagesMovieContext> options)
+        public RazorPagesMovieContext(DbContextOptions<RazorPagesMovieContext> options)
             : base(options)
         {
         }
