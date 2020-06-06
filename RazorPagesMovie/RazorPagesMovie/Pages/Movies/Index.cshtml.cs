@@ -29,6 +29,7 @@ namespace RazorPagesMovie.Pages.Movies
         public string MovieGenre { get; set; }
         public async Task OnGetAsync()
         {
+            // using System.Linq;
             var movies = from m in _context.Movie
                          select m;
             if (!string.IsNullOrEmpty(SearchString))
