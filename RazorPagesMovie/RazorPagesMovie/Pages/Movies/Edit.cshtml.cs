@@ -12,9 +12,9 @@ namespace RazorPagesMovie.Pages.Movies
 {
     public class EditModel : PageModel
     {
-        private readonly RazorPagesMovieContext _context;
+        private readonly RazorPagesMovie.Models.RazorPagesMovieContext _context;
 
-        public EditModel(RazorPagesMovieContext context)
+        public EditModel(RazorPagesMovie.Models.RazorPagesMovieContext context)
         {
             _context = context;
         }
@@ -29,7 +29,7 @@ namespace RazorPagesMovie.Pages.Movies
                 return NotFound();
             }
 
-            Movie = await _context.Movie.SingleOrDefaultAsync(m => m.ID == id);
+            Movie = await _context.Movie.FirstOrDefaultAsync(m => m.ID == id);
 
             if (Movie == null)
             {
@@ -53,7 +53,7 @@ namespace RazorPagesMovie.Pages.Movies
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!_context.Movie.Any(e => e.ID == Movie.ID))
+                if (!MovieExists(Movie.ID))
                 {
                     return NotFound();
                 }
@@ -64,6 +64,11 @@ namespace RazorPagesMovie.Pages.Movies
             }
 
             return RedirectToPage("./Index");
+        }
+
+        private bool MovieExists(int id)
+        {
+            return _context.Movie.Any(e => e.ID == id);
         }
     }
 }
