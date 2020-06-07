@@ -1,10 +1,10 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RazorPagesMovie.Models;
 
@@ -19,14 +19,15 @@ namespace RazorPagesMovie.Pages.Movies
             _context = context;
         }
 
-        public IList<Movie> Movie { get;set; }
+        public IList<Movie> Movie { get; set; }
         [BindProperty(SupportsGet = true)]
         public string SearchString { get; set; }
         // Requires using Microsoft.AspNetCore.Mvc.Rendering;
         public SelectList Genres { get; set; }
         [BindProperty(SupportsGet = true)]
-       
         public string MovieGenre { get; set; }
+
+
         public async Task OnGetAsync()
         {
             // Use LINQ to get list of genres.
@@ -46,24 +47,8 @@ namespace RazorPagesMovie.Pages.Movies
             {
                 movies = movies.Where(x => x.Genre == MovieGenre);
             }
-            Genres = await NewMethod(genreQuery);
-
+            Genres = new SelectList(await genreQuery.Distinct().ToListAsync());
             Movie = await movies.ToListAsync();
-        }
-
-        private static async Task<SelectList> NewMethod(IQueryable<string> genreQuery)
-        {
-            return new SelectList(await genreQuery.Distinct().ToListAsync());
-        }
-    }
-
-    public class SelectList
-    {
-        private List<string> list;
-
-        public SelectList(List<string> list)
-        {
-            this.list = list;
         }
     }
 }
