@@ -39,7 +39,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Movie[0].Rating)
             </th>
-            <th></th>
+            <th>@Html.DisplayNameFor(model => model.Movie[0].Rating)</th>
         </tr>
     </thead>
     <tbody>
@@ -61,6 +61,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Rating)
                 </td>
+
                 <td>
                     <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
                     <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
