@@ -47,4 +47,4 @@ namespace RazorPagesMovie.Pages.Movies
     }
 }
 
-          
+
