@@ -25,7 +25,7 @@ namespace RazorPagesMovie.Migrations
                 });
         }
 
-        protected override void down(MigrationBuilder migrationBuilder)
+        protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Movie");
