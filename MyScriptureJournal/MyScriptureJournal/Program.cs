@@ -21,4 +21,8 @@ namespace MyScriptureJournal
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
     }
+
+    internal class Startup
+    {
+    }
 }
