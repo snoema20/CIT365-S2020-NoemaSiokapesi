@@ -33,3 +33,4 @@ namespace RazorPagesMovie.Migrations
                 oldType: "decimal(18, 2)");
         }
     }
+}
