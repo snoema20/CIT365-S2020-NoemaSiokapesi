@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 namespace MyScriptureJournal.Migrations
 {
     [DbContext(typeof(MyScriptureJournalContext))]
-    partial class My_Scripture_JournalContextModelSnapshot : ModelSnapshot
+    partial class MyScriptureJournalContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -17,7 +17,7 @@ namespace MyScriptureJournal.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("My_Scripture_Journal.Models.Scripture", b =>
+            modelBuilder.Entity("MyScriptureJournal.Models.Scripture", b =>
             {
                 b.Property<int>("ID")
                     .ValueGeneratedOnAdd()

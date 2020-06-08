@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using MyScriptureJournal.Models;
-using My_Scripture_Journal.Models;
+
 
 namespace MyScriptureJournal.Pages.Scriptures
 {

@@ -6,9 +6,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MyScriptureJournal.Models
 {
-    public class My_Scripture_JournalContext : DbContext
+    public class MyScriptureJournalContext : DbContext
     {
-        public My_Scripture_JournalContext(DbContextOptions<My_Scripture_JournalContext> options)
+        public MyScriptureJournalContext(DbContextOptions<MyScriptureJournalContext> options)
             : base(options)
         {
         }

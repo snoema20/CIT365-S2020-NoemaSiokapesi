@@ -7,9 +7,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyScriptureJournal.Models;
 
-namespace My_Scripture_Journal.Migrations
+namespace MyScriptureJournal.Migrations
 {
-    [DbContext(typeof(My_Scripture_JournalContext))]
+    [DbContext(typeof(MyScriptureJournalContext))]
     [Migration("20191102181812_Initial")]
     partial class Initial
     {

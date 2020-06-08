@@ -7,13 +7,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using MyScriptureJournal.Models;
 
-namespace My_Scripture_Journal.Pages.Scriptures
+namespace MyScriptureJournal.Pages.Scriptures
 {
     public class DeleteModel : PageModel
     {
-        private readonly MyScriptureJournal.Models.My_Scripture_JournalContext _context;
+        private readonly MyScriptureJournal.Models.MyScriptureJournalContext _context;
 
-        public DeleteModel(MyScriptureJournal.Models.My_Scripture_JournalContext context)
+        public DeleteModel(MyScriptureJournal.Models.MyScriptureJournalContext context)
         {
             _context = context;
         }
