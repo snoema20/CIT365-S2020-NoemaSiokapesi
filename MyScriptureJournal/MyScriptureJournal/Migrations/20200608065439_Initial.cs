@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace My_Scripture_Journal.Migrations
+namespace MyScriptureJournal.Migrations
 {
     public partial class Initial : Migration
     {

@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel;
 
-namespace My_Scripture_Journal.Models
+namespace MyScriptureJournal.Models
 {
     public class Scripture
     {

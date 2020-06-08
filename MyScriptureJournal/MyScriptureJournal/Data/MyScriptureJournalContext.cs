@@ -16,7 +16,5 @@ namespace MyScriptureJournal.Models
         public DbSet<MyScriptureJournal.Models.Scripture> Scripture { get; set; }
     }
 
-    public class Scripture
-    {
+  
     }
-}
