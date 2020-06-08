@@ -27,7 +27,6 @@ namespace RazorPagesMovie.Pages.Movies
         [BindProperty(SupportsGet = true)]
         public string MovieGenre { get; set; }
 
-
         public async Task OnGetAsync()
         {
             // Use LINQ to get list of genres.
@@ -37,6 +36,12 @@ namespace RazorPagesMovie.Pages.Movies
 
             var movies = from m in _context.Movie
                          select m;
+
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                movies = movies.Where(s => s.Title.Contains(SearchString));
+            }
+
             if (!string.IsNullOrEmpty(MovieGenre))
             {
                 movies = movies.Where(x => x.Genre == MovieGenre);
