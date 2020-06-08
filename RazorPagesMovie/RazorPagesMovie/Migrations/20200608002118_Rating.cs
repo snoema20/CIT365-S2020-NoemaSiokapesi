@@ -19,7 +19,7 @@ namespace RazorPagesMovie.Migrations
                 nullable: true);
         }
 
-        protected override void down(MigrationBuilder migrationBuilder)
+        protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
                 name: "Rating",
@@ -33,4 +33,3 @@ namespace RazorPagesMovie.Migrations
                 oldType: "decimal(18, 2)");
         }
     }
-}
