@@ -10,25 +10,26 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using MyScriptureJournal.Models;
+using MyScriptureJournal;
 
-namespace My_Scripture_Journal
+namespace MyScriptureJournal
 {
-    public class Startup
+    public class StartUp
     {
-        public Startup(IConfiguration configuration)
+        public StartUp(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
+        public object nv { get; private set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
-
             services.AddDbContext<MyScriptureJournalContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("My_Scripture_JournalContext")));
+                     
+                    options.UseSqlServer(Configuration.GetConnectionString("MyScriptureJournalContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,16 +48,11 @@ namespace My_Scripture_Journal
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapRazorPages();
-            });
         }
+    }
+
+    public interface IWebHostEnvironment
+    {
     }
 }
 
