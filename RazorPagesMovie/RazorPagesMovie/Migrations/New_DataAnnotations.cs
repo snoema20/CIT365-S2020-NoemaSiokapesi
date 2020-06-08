@@ -31,7 +31,7 @@ namespace RazorPagesMovie.Migrations
                 oldNullable: true);
         }
 
-        protected override void Down(MigrationBuilder migrationBuilder)
+        protected override void down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
                 name: "Title",
