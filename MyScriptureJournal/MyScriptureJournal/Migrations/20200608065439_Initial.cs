@@ -1,8 +1,7 @@
 ﻿using System;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace MyScriptureJournal.Migrations
+namespace My_Scripture_Journal.Migrations
 {
     public partial class Initial : Migration
     {
@@ -13,11 +12,11 @@ namespace MyScriptureJournal.Migrations
                 columns: table => new
                 {
                     ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     NoteTitle = table.Column<string>(nullable: true),
                     Book = table.Column<string>(nullable: true),
-                    Chapter = table.Column<int>(nullable: false),
-                    Verse = table.Column<int>(nullable: false),
+                    Chapter = table.Column<decimal>(nullable: false),
+                    Verse = table.Column<decimal>(nullable: false),
                     Note = table.Column<string>(nullable: true),
                     Passage = table.Column<string>(nullable: true),
                     DateAdded = table.Column<DateTime>(nullable: false)
