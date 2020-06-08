@@ -3,57 +3,54 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
 
-namespace RazorPagesMovie.Models
+namespace My_Scripture_Journal.Models
 {
     public static class SeedData
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
-            using (var context = new RazorPagesMovieContext(
-                serviceProvider.GetRequiredService<
-                    DbContextOptions<RazorPagesMovieContext>>()))
+            using (var context = new My_Scripture_JournalContext(
+                 serviceProvider.GetRequiredService<
+                     DbContextOptions<My_Scripture_JournalContext>>()))
             {
-                // Look for any movies.
-                if (context.Movie.Any())
+                // Look for any scriptures
+                if (context.Scripture.Any())
                 {
                     return;   // DB has been seeded
                 }
 
-                context.Movie.AddRange(
-                    new Movie
+                context.Scripture.AddRange(
+                    new Scripture
                     {
-                        Title = "When Harry Met Sally",
-                        ReleaseDate = DateTime.Parse("1989-2-12"),
-                        Genre = "Romantic Comedy",
-                        Price = 7.99M,
-                        Rating = "R"
+                        NoteTitle = "1 Nephi 3:7",
+                        Book = "1 Nephi",
+                        Chapter = 3,
+                        Verse = 7,
+                        Note = "I can do hard things",
+                        Passage = "And it came to pass that I, Nephi, said unto my father: I will go and do the things which the Lord hath commanded, for I know that the Lord giveth no commandments unto the children of men, save he shall prepare a way for them that they may accomplish the thing which he commandeth them.",
+                        DateAdded = DateTime.Parse("2020-5-29")
                     },
 
-                    new Movie
+                    new Scripture
                     {
-                        Title = "Ghostbusters ",
-                        ReleaseDate = DateTime.Parse("1984-3-13"),
-                        Genre = "Comedy",
-                        Price = 8.99M,
-                        Rating = "PG"
+                        NoteTitle = "Jacob 6:12",
+                        Book = "Jacob",
+                        Chapter = 6,
+                        Verse = 12,
+                        Note = "Don't be dumb",
+                        Passage = "O be wise; what can I say more?",
+                        DateAdded = DateTime.Parse("2091-10-31")
                     },
 
-                    new Movie
+                    new Scripture
                     {
-                        Title = "Ghostbusters 2",
-                        ReleaseDate = DateTime.Parse("1986-2-23"),
-                        Genre = "Comedy",
-                        Price = 9.99M,
-                        Rating = "PG"
-                    },
-
-                    new Movie
-                    {
-                        Title = "Rio Bravo",
-                        ReleaseDate = DateTime.Parse("1959-4-15"),
-                        Genre = "Western",
-                        Price = 3.99M,
-                        Rating = "PG"
+                        NoteTitle = "John 15:14",
+                        Book = "John",
+                        Chapter = 15,
+                        Verse = 14,
+                        Note = "The question is whether or not you will choose to be Christ's friend",
+                        Passage = "Ye are my friends, if ye do whatsoever I command you.",
+                        DateAdded = DateTime.Parse("2021-11-1")
                     }
                 );
                 context.SaveChanges();
