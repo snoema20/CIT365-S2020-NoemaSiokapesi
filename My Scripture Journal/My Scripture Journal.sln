@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My Scripture Journal", "My Scripture Journal\My Scripture Journal.csproj", "{0AA2C336-761B-42E6-83D4-04A6F02B784F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My Scripture Journal", "My Scripture Journal\My Scripture Journal.csproj", "{7AB92491-4AD3-4991-A5B0-96AC7044B3E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0AA2C336-761B-42E6-83D4-04A6F02B784F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0AA2C336-761B-42E6-83D4-04A6F02B784F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0AA2C336-761B-42E6-83D4-04A6F02B784F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0AA2C336-761B-42E6-83D4-04A6F02B784F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AB92491-4AD3-4991-A5B0-96AC7044B3E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AB92491-4AD3-4991-A5B0-96AC7044B3E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AB92491-4AD3-4991-A5B0-96AC7044B3E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AB92491-4AD3-4991-A5B0-96AC7044B3E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {3AC4B0B5-EDEC-4F81-A02C-7AFE6B98DE48}
+		SolutionGuid = {DF833A68-DA5C-4D11-9257-F50F56E6C764}
 	EndGlobalSection
 EndGlobal
