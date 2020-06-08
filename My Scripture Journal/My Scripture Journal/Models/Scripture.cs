@@ -28,8 +28,8 @@ namespace My_Scripture_Journal.Models
 
         [Display(Name = "Date Added")]
         [DataType(DataType.Date)]
-        public DateTime DateAdded { get;  set; }
-        
+        public DateTime DateAdded { get; set; }
+
         public Scripture()
         {
             DateAdded = DateTime.Now;
