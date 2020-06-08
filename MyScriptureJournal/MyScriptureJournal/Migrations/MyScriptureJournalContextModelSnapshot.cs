@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace My_Scripture_Journal.Migrations
+namespace MyScriptureJournal.Migrations
 {
     [DbContext(typeof(MyScriptureJournalContext))]
     partial class My_Scripture_JournalContextModelSnapshot : ModelSnapshot
