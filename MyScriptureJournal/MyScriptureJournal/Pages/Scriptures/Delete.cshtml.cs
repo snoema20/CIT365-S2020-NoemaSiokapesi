@@ -5,16 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using MyScriptureJournal.Models;
 using My_Scripture_Journal.Models;
 
-namespace MyScriptureJournal.Pages.Scriptures
+namespace My_Scripture_Journal.Pages.Scriptures
 {
     public class DeleteModel : PageModel
     {
-        private readonly MyScriptureJournal.Models.MyScriptureJournalContext _context;
+        private readonly MyScriptureJournal.Models.My_Scripture_JournalContext _context;
 
-        public DeleteModel(MyScriptureJournal.Models.MyScriptureJournalContext context)
+        public DeleteModel(MyScriptureJournal.Models.My_Scripture_JournalContext context)
         {
             _context = context;
         }
