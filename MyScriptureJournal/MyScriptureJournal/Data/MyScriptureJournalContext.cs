@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using My_Scripture_Journal.Models;
 
-namespace MyScriptureJournal.Models
+namespace My_Scripture_Journal.Models
 {
-    public class MyScriptureJournalContext : DbContext
+    public class My_Scripture_JournalContext : DbContext
     {
-        public MyScriptureJournalContext (DbContextOptions<MyScriptureJournalContext> options)
+        public My_Scripture_JournalContext(DbContextOptions<My_Scripture_JournalContext> options)
             : base(options)
         {
         }
