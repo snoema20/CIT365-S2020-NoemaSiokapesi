@@ -13,8 +13,10 @@ namespace MyScriptureJournal.Models
         {
         }
 
-        public object JournalEntry { get; internal set; }
-        public object MyScriptureJournal { get; internal set; }
-        public object Scripture { get; internal set; }
+        public DbSet<MyScriptureJournal.Models.JournalEntry> JournalEntry { get; set; }
+    }
+
+    public class JournalEntry
+    {
     }
 }
