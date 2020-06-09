@@ -3,6 +3,8 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using MyScriptureJournal.Models;
 
 namespace MyScriptureJournal.Migrations
 {
@@ -17,7 +19,7 @@ namespace MyScriptureJournal.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("MyScriptureJournal.Models.Scripture", b =>
+            modelBuilder.Entity("MyScriptureJournal.Models.JournalEntry", b =>
             {
                 b.Property<int>("ID")
                     .ValueGeneratedOnAdd()
@@ -27,27 +29,21 @@ namespace MyScriptureJournal.Migrations
                 b.Property<string>("Book")
                     .HasColumnType("nvarchar(max)");
 
-                b.Property<int>("Chapter")
-                    .HasColumnType("int");
-
-                b.Property<DateTime>("DateAdded")
+                b.Property<DateTime>("EntryDate")
                     .HasColumnType("datetime2");
 
-                b.Property<string>("Note")
+                b.Property<string>("Notes")
                     .HasColumnType("nvarchar(max)");
 
-                b.Property<string>("NoteTitle")
+                b.Property<string>("Reference")
                     .HasColumnType("nvarchar(max)");
 
-                b.Property<string>("Passage")
+                b.Property<string>("Title")
                     .HasColumnType("nvarchar(max)");
-
-                b.Property<int>("Verse")
-                    .HasColumnType("int");
 
                 b.HasKey("ID");
 
-                b.ToTable("Scripture");
+                b.ToTable("JournalEntry");
             });
 #pragma warning restore 612, 618
         }
