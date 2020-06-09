@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MyScriptureJournal.Pages.JournalEntries
+namespace MyScriptureJournal.Pages.Journal
 {
     internal class PaginatedList<T>
     {

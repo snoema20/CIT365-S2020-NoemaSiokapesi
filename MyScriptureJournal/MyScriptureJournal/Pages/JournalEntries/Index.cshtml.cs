@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MyScriptureJournal.Models;
+using MyScriptureJournal.Pages.Journal;
 
-namespace MyScriptureJournal.Pages.JournalEntries
+namespace MyScriptureJournal.Pages.Journal
 {
     public class IndexModel : PageModel
     {
@@ -25,7 +26,7 @@ namespace MyScriptureJournal.Pages.JournalEntries
         public string CurrentKeywordFilter { get; set; }
         public string CurrentSort { get; set; }
 
-        public PaginatedList<Models.JournalEntries> JournalEntries { get; set; }
+        PaginatedList<Models.JournalEntries> Journal { get; set; }
 
 
         public async Task OnGetAsync(string sortOrder, string currentBookFilter, string currentKeywordFilter,
@@ -75,8 +76,12 @@ namespace MyScriptureJournal.Pages.JournalEntries
             }
 
             int pageSize = 5;
-            JournalEntries = await PaginatedList<JournalEntries>.CreateAsync(
+            Journal = await PaginatedList<MyScripureJournal>.CreateAsync(
                 journalEntries.AsNoTracking(), pageIndex ?? 1, pageSize);
         }
+    }
+
+    internal class MyScripureJournal
+    {
     }
 }

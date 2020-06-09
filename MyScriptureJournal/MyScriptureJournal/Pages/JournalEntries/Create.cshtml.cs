@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MyScriptureJournal.Models;
 
-namespace MyScriptureJournal.Pages.JournalEntries
+namespace MyScriptureJournal.Pages.Journal
 {
     public class CreateModel : PageModel
     {
