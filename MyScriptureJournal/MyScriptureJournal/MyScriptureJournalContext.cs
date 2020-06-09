@@ -2,5 +2,6 @@
 {
     internal class MyScriptureJournalContext
     {
+        public object Database { get; internal set; }
     }
 }
