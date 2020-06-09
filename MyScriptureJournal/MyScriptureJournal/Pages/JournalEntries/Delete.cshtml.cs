@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using MyScriptureJournal.Models;
 
-namespace MyScriptureJournal.Pages.Scriptures
+namespace MyScriptureJournal.Pages.JournalEntries
 {
     public class DeleteModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace MyScriptureJournal.Pages.Scriptures
         }
 
         [BindProperty]
-        public Scripture Scripture { get; set; }
+        public Models.JournalEntries JournalEntry { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,13 +28,23 @@ namespace MyScriptureJournal.Pages.Scriptures
                 return NotFound();
             }
 
-            Scripture = await _context.Scripture.FirstOrDefaultAsync(m => m.ID == id);
+            JournalEntry = await _context.JournalEntry.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Scripture == null)
+            if (JournalEntry == null)
             {
                 return NotFound();
             }
             return Page();
+        }
+
+        private IActionResult Page()
+        {
+            throw new NotImplementedException();
+        }
+
+        private IActionResult NotFound()
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
@@ -44,19 +54,20 @@ namespace MyScriptureJournal.Pages.Scriptures
                 return NotFound();
             }
 
-            Scripture = await _context.Scripture.FindAsync(id);
+            JournalEntry = await _context.JournalEntry.FindAsync(id);
 
-            if (Scripture != null)
+            if (JournalEntry != null)
             {
-                _context.Scripture.Remove(Scripture);
+                _context.JournalEntry.Remove(JournalEntry);
                 await _context.SaveChangesAsync();
             }
 
             return RedirectToPage("./Index");
         }
-    }
 
-    public class Scripture
-    {
+        private IActionResult RedirectToPage(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

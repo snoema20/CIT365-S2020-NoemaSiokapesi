@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MyScriptureJournal.Models
 {
-    public class MyJournalEntry
+    public class JournalsEntry
     {
         public int ID { get; set; }
         public string Title { get; set; }

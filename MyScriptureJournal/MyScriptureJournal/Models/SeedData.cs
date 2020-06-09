@@ -1,13 +1,12 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using System.Collections.Generic;
+using MyScriptureJournal.Models;
+using System;
 using System.Linq;
-using System.Threading.Tasks;
 
-namespace MyScriptureJournal.Models
+namespace RazorPagesJournalEntry.Models
 {
-    public class SeedData
+    public static class SeedData
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
@@ -15,48 +14,62 @@ namespace MyScriptureJournal.Models
                 serviceProvider.GetRequiredService<
                     DbContextOptions<MyScriptureJournalContext>>()))
             {
-                // Look for any movies.
+                // Look for any journal entries.
                 if (context.JournalEntry.Any())
                 {
                     return;   // DB has been seeded
                 }
 
                 context.JournalEntry.AddRange(
-                    new JournalEntry
+                    new JournalEntries
                     {
-                        Title = "Ten Commandments",
-                        EntryDate = DateTime.Parse("2019-10-29"),
-                        Book = "Genesis",
-                        Reference = "20: 3-17",
-                        Notes = "The Ten Commandments are pretty great."
+                        Book = "Job 1:1",
+                        DateAdded = DateTime.Parse("1989-2-12"),
+                        Note = "There was a man in the land of Uz, whose name was Job; and that man was perfect and upright, and one that feared God, and eschewed evil."
                     },
 
-                    new JournalEntry
+                    new JournalEntries
                     {
-                        Title = "Sacrament Prayers",
-                        EntryDate = DateTime.Parse("2019-10-28"),
-                        Book = "Doctrine and Covenants",
-                        Reference = "20: 77,79",
-                        Notes = "Bread and water to remember Christ's atoning sacrifice."
+                        Book = "Genesis 2:2",
+                        DateAdded = DateTime.Parse("1984-3-13"),
+                        Note = "And on the seventh day God ended his work which he had made; and he rested on the seventh day from all his work which he had made."
                     },
 
-                    new JournalEntry
+                    new JournalEntries
                     {
-                        Title = "Don't procrastinate",
-                        EntryDate = DateTime.Parse("2019-10-27"),
-                        Book = "Alma",
-                        Reference = "34: 32-34",
-                        Notes = "Prepare now."
+                        Book = "Psalm 19:14",
+                        DateAdded = DateTime.Parse("1986-2-23"),
+                        Note = "Let the words of my mouth, and the meditation of my heart, be acceptable in thy sight, O Lord, my strength, and my redeemer."
                     },
 
-                    new JournalEntry
+                    new JournalEntries
                     {
-                        Title = "Be like this",
-                        EntryDate = DateTime.Parse("2019-10-26"),
-                        Book = "Alma",
-                        Reference = "7: 23-24",
-                        Notes = "This is a great list of qualities to pursue. Imagine if everyone in the world were like this. There would be no war, no poor, no inequality. There would be peace."
+                        Book = "Luke 17:13",
+                        DateAdded = DateTime.Parse("1959-4-15"),
+                        Note = "And they lifted up their voices, and said, Jesus, Master, have mercy on us."
+                    },
+
+                    new JournalEntries
+                    {
+                        Book = "1 Nephi 1:3",
+                        DateAdded = DateTime.Parse("2019-2-28"),
+                        Note = "And I know that the record which I make is true; and I make it with mine own hand; and I make it according to my knowledge."
+                    },
+
+                    new JournalEntries
+                    {
+                        Book = "Mosiah 1:12",
+                        DateAdded = DateTime.Parse("2019-2-28"),
+                        Note = "And I give unto them a name that never shall be blotted out, except it be through transgression."
+                    },
+
+                    new JournalEntries
+                    {
+                        Book = "Ether 6:3",
+                        DateAdded = DateTime.Parse("2019-2-28"),
+                        Note = "And thus the Lord caused stones to shine in darkness, to give light unto men, women, and children, that they might not cross the great waters in darkness."
                     }
+
                 );
                 context.SaveChanges();
             }

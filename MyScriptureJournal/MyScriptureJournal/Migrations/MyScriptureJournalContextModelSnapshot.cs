@@ -15,7 +15,7 @@ namespace MyScriptureJournal.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.0.0")
+                .HasAnnotation("ProductVersion", "2.2.2-servicing-10034")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -23,23 +23,13 @@ namespace MyScriptureJournal.Migrations
             {
                 b.Property<int>("ID")
                     .ValueGeneratedOnAdd()
-                    .HasColumnType("int")
                     .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                b.Property<string>("Book")
-                    .HasColumnType("nvarchar(max)");
+                b.Property<string>("Book");
 
-                b.Property<DateTime>("EntryDate")
-                    .HasColumnType("datetime2");
+                b.Property<DateTime>("DateAdded");
 
-                b.Property<string>("Notes")
-                    .HasColumnType("nvarchar(max)");
-
-                b.Property<string>("Reference")
-                    .HasColumnType("nvarchar(max)");
-
-                b.Property<string>("Title")
-                    .HasColumnType("nvarchar(max)");
+                b.Property<string>("Note");
 
                 b.HasKey("ID");
 

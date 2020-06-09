@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MyScriptureJournal.Migrations
@@ -12,13 +13,10 @@ namespace MyScriptureJournal.Migrations
                 columns: table => new
                 {
                     ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(nullable: true),
-                    EntryDate = table.Column<DateTime>(nullable: false),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Book = table.Column<string>(nullable: true),
-                    Chapter = table.Column<int>(nullable: false),
-                    Verse = table.Column<int>(nullable: false),
-                    Notes = table.Column<string>(nullable: true)
+                    Note = table.Column<string>(nullable: true),
+                    DateAdded = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {

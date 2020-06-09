@@ -10,14 +10,14 @@ using MyScriptureJournal.Models;
 namespace MyScriptureJournal.Migrations
 {
     [DbContext(typeof(MyScriptureJournalContext))]
-    [Migration("20191030004406_Initial")]
+    [Migration("20190228050455_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.0.0")
+                .HasAnnotation("ProductVersion", "2.2.2-servicing-10034")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -25,26 +25,13 @@ namespace MyScriptureJournal.Migrations
             {
                 b.Property<int>("ID")
                     .ValueGeneratedOnAdd()
-                    .HasColumnType("int")
                     .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                b.Property<string>("Book")
-                    .HasColumnType("nvarchar(max)");
+                b.Property<string>("Book");
 
-                b.Property<int>("Chapter")
-                    .HasColumnType("int");
+                b.Property<DateTime>("DateAdded");
 
-                b.Property<DateTime>("EntryDate")
-                    .HasColumnType("datetime2");
-
-                b.Property<string>("Notes")
-                    .HasColumnType("nvarchar(max)");
-
-                b.Property<string>("Title")
-                    .HasColumnType("nvarchar(max)");
-
-                b.Property<int>("Verse")
-                    .HasColumnType("int");
+                b.Property<string>("Note");
 
                 b.HasKey("ID");
 

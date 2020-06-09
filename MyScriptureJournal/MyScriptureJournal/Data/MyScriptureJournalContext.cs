@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,11 +14,18 @@ namespace MyScriptureJournal.Models
         {
         }
 
-        public DbSet<MyScriptureJournal.Models.JournalEntry> JournalEntry { get; set; }
-        public object Scripture { get; internal set; }
+        public DbSet<MyScriptureJournal.Models.JournalEntries> JournalEntry { get; set; }
     }
 
-    public class JournalEntry
+    public class JournalEntries
     {
+        public JournalEntries()
+        {
+        }
+
+        public string Book { get; internal set; }
+        public DateTime DateAdded { get; internal set; }
+        public string Note { get; internal set; }
+        public int? ID { get; internal set; }
     }
 }
