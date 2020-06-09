@@ -15,6 +15,7 @@ namespace MyScriptureJournal.Models
         }
 
         public DbSet<MyScriptureJournal.Models.JournalEntries> JournalEntry { get; set; }
+        public object Scripture { get; internal set; }
     }
 
     public class JournalEntries

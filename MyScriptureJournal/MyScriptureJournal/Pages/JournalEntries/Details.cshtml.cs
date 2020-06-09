@@ -7,8 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using MyScriptureJournal.Models;
 
-
-namespace MyScriptureJournal.Pages.Scriptures
+namespace MyScriptureJournal.Pages.Journal
 {
     public class DetailsModel : PageModel
     {
@@ -19,7 +18,7 @@ namespace MyScriptureJournal.Pages.Scriptures
             _context = context;
         }
 
-        public Scripture Scripture { get; set; }
+        public JournalEntry JournalEntry { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,13 +27,23 @@ namespace MyScriptureJournal.Pages.Scriptures
                 return NotFound();
             }
 
-            Scripture = await _context.Scripture.FirstOrDefaultAsync(m => m.ID == id);
+            JournalEntry = await _context.JournalEntry.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Scripture == null)
+            if (JournalEntry == null)
             {
                 return NotFound();
             }
             return Page();
+        }
+
+        private IActionResult Page()
+        {
+            throw new NotImplementedException();
+        }
+
+        private IActionResult NotFound()
+        {
+            throw new NotImplementedException();
         }
     }
 }

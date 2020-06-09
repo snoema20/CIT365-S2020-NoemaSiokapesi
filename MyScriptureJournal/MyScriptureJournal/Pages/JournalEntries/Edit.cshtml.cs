@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,8 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MyScriptureJournal.Models;
 
-
-namespace MyScriptureJournal.Pages.Scriptures
+namespace MyScriptureJournal.Pages.Journal
 {
     public class EditModel : PageModel
     {
@@ -21,7 +21,8 @@ namespace MyScriptureJournal.Pages.Scriptures
         }
 
         [BindProperty]
-        public Scripture Scripture { get; set; }
+        public JournalEntry JournalEntry { get; set; }
+        public object ModelState { get; private set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,15 +31,27 @@ namespace MyScriptureJournal.Pages.Scriptures
                 return NotFound();
             }
 
-            Scripture = await _context.Scripture.FirstOrDefaultAsync(m => m.ID == id);
+            JournalEntry = await _context.JournalEntry.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Scripture == null)
+            if (JournalEntry == null)
             {
                 return NotFound();
             }
             return Page();
         }
 
+        private IActionResult Page()
+        {
+            throw new NotImplementedException();
+        }
+
+        private IActionResult NotFound()
+        {
+            throw new NotImplementedException();
+        }
+
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
+        // more details see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -46,7 +59,7 @@ namespace MyScriptureJournal.Pages.Scriptures
                 return Page();
             }
 
-            _context.Attach(Scripture).State = EntityState.Modified;
+            _context.Attach(JournalEntry).State = EntityState.Modified;
 
             try
             {
@@ -54,7 +67,7 @@ namespace MyScriptureJournal.Pages.Scriptures
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ScriptureExists(Scripture.ID))
+                if (!JournalEntryExists(JournalEntry.ID))
                 {
                     return NotFound();
                 }
@@ -67,9 +80,14 @@ namespace MyScriptureJournal.Pages.Scriptures
             return RedirectToPage("./Index");
         }
 
-        private bool ScriptureExists(int id)
+        private IActionResult RedirectToPage(string v)
         {
-            return _context.Scripture.Any(e => e.ID == id);
+            throw new NotImplementedException();
+        }
+
+        private bool JournalEntryExists(int id)
+        {
+            return _context.JournalEntry.Any(e => e.ID == id);
         }
     }
 }
