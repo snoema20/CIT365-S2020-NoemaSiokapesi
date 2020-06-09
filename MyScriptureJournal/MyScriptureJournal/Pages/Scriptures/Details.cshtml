@@ -5,53 +5,41 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
+<h1>Details</h1>
 
 <div>
-    <h4>Scripture</h4>
+    <h4>JournalEntry</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Scripture.NoteTitle)
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Scripture.Title)
         </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Scripture.NoteTitle)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Scripture.Title)
         </dd>
-        <dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Scripture.EntryDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Scripture.EntryDate)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Scripture.Book)
         </dt>
-        <dd>
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Scripture.Book)
         </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Scripture.Chapter)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Scripture.Reference)
         </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Scripture.Chapter)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Scripture.Reference)
         </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Scripture.Verse)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Scripture.Notes)
         </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Scripture.Verse)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Scripture.Note)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Scripture.Note)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Scripture.Passage)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Scripture.Passage)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Scripture.DateAdded)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Scripture.DateAdded)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Scripture.Notes)
         </dd>
     </dl>
 </div>

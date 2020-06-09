@@ -7,8 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MyScriptureJournal.Models;
 
-
-namespace MyScriptureJournal.Pages.Scriptures
+namespace MyScriptureJournal.Pages.Journal
 {
     public class CreateModel : PageModel
     {
@@ -25,8 +24,10 @@ namespace MyScriptureJournal.Pages.Scriptures
         }
 
         [BindProperty]
-        public Scripture Scripture { get; set; }
+        public JournalEntry JournalEntry { get; set; }
 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
+        // more details see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -34,7 +35,7 @@ namespace MyScriptureJournal.Pages.Scriptures
                 return Page();
             }
 
-            _context.Scripture.Add(Scripture);
+            _context.JournalEntry.Add(JournalEntry);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

@@ -1,4 +1,4 @@
-﻿namespace My_Scripture_Journal
+﻿namespace MyScriptureJournal
 {
     public interface IWebHostEnvironment
     {

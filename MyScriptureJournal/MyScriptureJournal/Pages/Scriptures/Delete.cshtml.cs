@@ -55,4 +55,8 @@ namespace MyScriptureJournal.Pages.Scriptures
             return RedirectToPage("./Index");
         }
     }
+
+    public class Scripture
+    {
+    }
 }
