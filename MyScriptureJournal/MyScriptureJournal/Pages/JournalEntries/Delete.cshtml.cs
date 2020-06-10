@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using MyScriptureJournal.Models;
 
-namespace MyScriptureJournal.Pages.Journal
+namespace MyScriptureJournal.Pages.JournalEntries
 {
     public class DeleteModel : PageModel
     {

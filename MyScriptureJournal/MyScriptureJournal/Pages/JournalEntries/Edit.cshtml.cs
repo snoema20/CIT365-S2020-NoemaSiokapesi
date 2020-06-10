@@ -23,6 +23,7 @@ namespace MyScriptureJournal.Pages.Journal
         [BindProperty]
         public JournalEntry JournalEntry { get; set; }
         public object ModelState { get; private set; }
+        public object ModelsState { get; private set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -54,7 +55,7 @@ namespace MyScriptureJournal.Pages.Journal
         // more details see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            if (!Models.Pages.IsValid)
             {
                 return Page();
             }
@@ -78,6 +79,11 @@ namespace MyScriptureJournal.Pages.Journal
             }
 
             return RedirectToPage("./Index");
+        }
+
+        private bool JournalEntryExists(object iD)
+        {
+            throw new NotImplementedException();
         }
 
         private IActionResult RedirectToPage(string v)

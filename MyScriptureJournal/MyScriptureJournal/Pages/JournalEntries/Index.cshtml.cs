@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MyScriptureJournal.Models;
-using MyScriptureJournal.Pages.Journal;
+using MyScriptureJournal.Pages.JournalEntries;
 
 namespace MyScriptureJournal.Pages.Journal
 {
@@ -76,12 +76,8 @@ namespace MyScriptureJournal.Pages.Journal
             }
 
             int pageSize = 5;
-            Journal = await PaginatedList<MyScripureJournal>.CreateAsync(
+            Journal = await PaginatedList<Journal>.CreateAsync(
                 journalEntries.AsNoTracking(), pageIndex ?? 1, pageSize);
         }
-    }
-
-    internal class MyScripureJournal
-    {
     }
 }
