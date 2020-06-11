@@ -29,7 +29,7 @@ namespace MyScriptureJournal.Pages.Journal
         PaginatedList<Models.JournalEntries> Journal { get; set; }
 
 
-        public async Task OnGetAsync(string sortOrder, string currentBookFilter, string currentKeywordFilter,
+        public void OnGet(string sortOrder, string currentBookFilter, string currentKeywordFilter,
             string searchBook, string searchKeyword, int? pageIndex)
         {
             CurrentSort = sortOrder;
@@ -75,9 +75,6 @@ namespace MyScriptureJournal.Pages.Journal
                     break;
             }
 
-            int pageSize = 5;
-            Journal = await PaginatedList<Journal>.CreateAsync(
-                journalEntries.AsNoTracking(), pageIndex ?? 1, pageSize);
         }
     }
 }

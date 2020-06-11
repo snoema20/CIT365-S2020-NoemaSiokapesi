@@ -28,23 +28,32 @@ namespace MyScriptureJournal.Pages.Journal
             throw new NotImplementedException();
         }
 
-        [BindProperty]
-        public JournalEntry JournalEntry { get; set; }
+        private Models.JournalEntries journalEntry;
+
+        public JournalEntry GetJournalEntry()
+        {
+            return journalEntry;
+        }
+
+        public void SetJournalEntry(JournalEntry value)
+        {
+            journalEntry = value;
+        }
+
+        public Models.JournalEntries JournalEntry { get; private set; }
 
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPost()
         {
             object ModelState = null;
-            if (!ModelState.IsValid)
+            if (ModelState.Is.Valid)
             {
-                return Pages();
+
+
+                return RedirectToPage("./Index");
             }
-
-            _context.JournalEntry.Add(JournalEntry);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
+            return Pages();
         }
 
         private IActionResult RedirectToPage(string v)

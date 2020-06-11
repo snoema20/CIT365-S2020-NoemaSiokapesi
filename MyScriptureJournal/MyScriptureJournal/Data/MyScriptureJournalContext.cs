@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using MyScriptureJournal.Pages.Journal;
 
 namespace MyScriptureJournal.Models
 {
@@ -28,5 +29,10 @@ namespace MyScriptureJournal.Models
         public DateTime DateAdded { get; internal set; }
         public string Note { get; internal set; }
         public int? ID { get; internal set; }
+
+        public static implicit operator JournalEntries(JournalEntry v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
