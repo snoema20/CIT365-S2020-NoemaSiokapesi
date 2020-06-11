@@ -49,11 +49,14 @@ namespace MyScriptureJournal.Pages.Journal
             object ModelState = null;
             if (ModelState.Is.Valid)
             {
+                ;
+            }
+
+            {
 
 
                 return RedirectToPage("./Index");
             }
-            return Pages();
         }
 
         private IActionResult RedirectToPage(string v)
