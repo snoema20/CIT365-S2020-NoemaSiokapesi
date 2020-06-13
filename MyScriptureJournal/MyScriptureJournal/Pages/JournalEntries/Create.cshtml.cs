@@ -28,7 +28,7 @@ namespace MyScriptureJournal.Pages.Journal
             throw new NotImplementedException();
         }
 
-        private Models.JournalEntries journalEntry;
+        private Models.JournalEntry journalEntry;
 
         public JournalEntry GetJournalEntry()
         {
@@ -40,28 +40,23 @@ namespace MyScriptureJournal.Pages.Journal
             journalEntry = value;
         }
 
-        public Models.JournalEntries JournalEntry { get; private set; }
+        public Models.JournalEntry JournalEntry { get; private set; }
 
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         public IActionResult OnPost()
         {
-            object ModelState = null;
-            if (ModelState.Is.Valid)
             {
-                ;
-            }
 
-            {
+            }
 
 
                 return RedirectToPage("./Index");
             }
-        }
 
         private IActionResult RedirectToPage(string v)
         {
             throw new NotImplementedException();
         }
     }
-}
+    }

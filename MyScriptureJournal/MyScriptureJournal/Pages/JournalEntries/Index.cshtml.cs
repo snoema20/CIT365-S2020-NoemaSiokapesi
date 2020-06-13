@@ -26,7 +26,7 @@ namespace MyScriptureJournal.Pages.Journal
         public string CurrentKeywordFilter { get; set; }
         public string CurrentSort { get; set; }
 
-        PaginatedList<Models.JournalEntries> Journal { get; set; }
+        PaginatedList<Models.JournalEntry> Journal { get; set; }
 
 
         public void OnGet(string sortOrder, string currentBookFilter, string currentKeywordFilter,

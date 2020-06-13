@@ -15,13 +15,13 @@ namespace MyScriptureJournal.Models
         {
         }
 
-        public DbSet<MyScriptureJournal.Models.JournalEntries> JournalEntry { get; set; }
+        public DbSet<MyScriptureJournal.Models.JournalEntry> JournalEntry { get; set; }
         public object Scripture { get; internal set; }
     }
 
-    public class JournalEntries
+    public class JournalEntry
     {
-        public JournalEntries()
+        public JournalEntry()
         {
         }
 
@@ -30,7 +30,7 @@ namespace MyScriptureJournal.Models
         public string Note { get; internal set; }
         public int? ID { get; internal set; }
 
-        public static implicit operator JournalEntries(JournalEntry v)
+        public static implicit operator JournalEntry(MyScriptureJournal.Pages.Journal.JournalEntry v)
         {
             throw new NotImplementedException();
         }

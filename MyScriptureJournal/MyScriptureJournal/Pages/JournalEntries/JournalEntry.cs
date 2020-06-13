@@ -7,12 +7,12 @@ namespace MyScriptureJournal.Pages.Journal
     {
         public object ID { get; internal set; }
 
-        public static implicit operator JournalEntry(JournalEntries v)
+        public static implicit operator JournalEntry(JournalEntry v)
         {
             throw new NotImplementedException();
         }
 
-        public static implicit operator JournalEntry(Models.JournalEntries v)
+        public static implicit operator JournalEntry(Models.JournalEntry v)
         {
             throw new NotImplementedException();
         }

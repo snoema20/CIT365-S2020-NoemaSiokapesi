@@ -19,7 +19,7 @@ namespace MyScriptureJournal.Pages.JournalEntries
         }
 
         [BindProperty]
-        public Models.JournalEntries JournalEntry { get; set; }
+        public Models.JournalEntry JournalEntry { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
