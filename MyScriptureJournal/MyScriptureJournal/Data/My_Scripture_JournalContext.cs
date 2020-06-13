@@ -13,6 +13,6 @@ namespace My_Scripture_Journal.Models
         {
         }
 
-        public DbSet<My_Scripture_Journal.Models.Entry> Entry { get; set; }
+        public new DbSet<My_Scripture_Journal.Models.Entry> Entry { get; set; }
     }
 }
