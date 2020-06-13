@@ -1,25 +1,26 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using MyScriptureJournal.Models;
+using My_Scripture_Journal.Models;
 
-namespace MyScriptureJournal.Pages.JournalEntries
+namespace My_Scripture_Journal.Pages.Entries
 {
     public class DeleteModel : PageModel
     {
-        private readonly MyScriptureJournal.Models.MyScriptureJournalContext _context;
+        private readonly My_Scripture_Journal.Models.My_Scripture_JournalContext _context;
 
-        public DeleteModel(MyScriptureJournal.Models.MyScriptureJournalContext context)
+        public DeleteModel(My_Scripture_Journal.Models.My_Scripture_JournalContext context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public Models.JournalEntry JournalEntry { get; set; }
+        public Entry Entry { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,23 +29,13 @@ namespace MyScriptureJournal.Pages.JournalEntries
                 return NotFound();
             }
 
-            JournalEntry = await _context.JournalEntry.FirstOrDefaultAsync(m => m.ID == id);
+            Entry = await _context.Entry.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (JournalEntry == null)
+            if (Entry == null)
             {
                 return NotFound();
             }
             return Page();
-        }
-
-        private IActionResult Page()
-        {
-            throw new NotImplementedException();
-        }
-
-        private IActionResult NotFound()
-        {
-            throw new NotImplementedException();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
@@ -54,20 +45,15 @@ namespace MyScriptureJournal.Pages.JournalEntries
                 return NotFound();
             }
 
-            JournalEntry = await _context.JournalEntry.FindAsync(id);
+            Entry = await _context.Entry.FindAsync(id);
 
-            if (JournalEntry != null)
+            if (Entry != null)
             {
-                _context.JournalEntry.Remove(JournalEntry);
+                _context.Entry.Remove(Entry);
                 await _context.SaveChangesAsync();
             }
 
             return RedirectToPage("./Index");
-        }
-
-        private IActionResult RedirectToPage(string v)
-        {
-            throw new NotImplementedException();
         }
     }
 }

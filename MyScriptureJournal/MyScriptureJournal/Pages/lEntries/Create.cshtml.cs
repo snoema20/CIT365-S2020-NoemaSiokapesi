@@ -7,56 +7,36 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MyScriptureJournal.Models;
 
-namespace MyScriptureJournal.Pages.Journal
+namespace My_Scripture_Journal.Pages.Entries
 {
     public class CreateModel : PageModel
     {
-        private readonly MyScriptureJournal.Models.MyScriptureJournalContext _context;
+        private readonly My_Scripture_Journal.Models.My_Scripture_JournalContext _context;
 
-        public CreateModel(MyScriptureJournal.Models.MyScriptureJournalContext context)
+        public CreateModel(My_Scripture_Journal.Models.My_Scripture_JournalContext context)
         {
             _context = context;
         }
 
         public IActionResult OnGet()
         {
-            return Pages();
+            return Page();
         }
 
-        private IActionResult Pages()
+        [BindProperty]
+        public Entry Entry { get; set; }
+
+        public async Task<IActionResult> OnPostAsync()
         {
-            throw new NotImplementedException();
-        }
-
-        private Models.JournalEntry journalEntry;
-
-        public JournalEntry GetJournalEntry()
-        {
-            return journalEntry;
-        }
-
-        public void SetJournalEntry(JournalEntry value)
-        {
-            journalEntry = value;
-        }
-
-        public Models.JournalEntry JournalEntry { get; private set; }
-
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
-        public IActionResult OnPost()
-        {
+            if (!ModelState.IsValid)
             {
-
+                return Page();
             }
 
+            _context.Entry.Add(Entry);
+            await _context.SaveChangesAsync();
 
-                return RedirectToPage("./Index");
-            }
-
-        private IActionResult RedirectToPage(string v)
-        {
-            throw new NotImplementedException();
+            return RedirectToPage("./Details");
         }
     }
-    }
+}

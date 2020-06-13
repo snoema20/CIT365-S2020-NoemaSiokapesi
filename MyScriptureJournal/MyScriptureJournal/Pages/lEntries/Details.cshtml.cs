@@ -5,20 +5,20 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using MyScriptureJournal.Models;
+using My_Scripture_Journal.Models;
 
-namespace MyScriptureJournal.Pages.Journal
+namespace My_Scripture_Journal.Pages.Entries
 {
     public class DetailsModel : PageModel
     {
-        private readonly MyScriptureJournal.Models.MyScriptureJournalContext _context;
+        private readonly My_Scripture_Journal.Models.My_Scripture_JournalContext _context;
 
-        public DetailsModel(MyScriptureJournal.Models.MyScriptureJournalContext context)
+        public DetailsModel(My_Scripture_Journal.Models.My_Scripture_JournalContext context)
         {
             _context = context;
         }
 
-        public JournalEntry JournalEntry { get; set; }
+        public Entry Entry { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -27,23 +27,13 @@ namespace MyScriptureJournal.Pages.Journal
                 return NotFound();
             }
 
-            JournalEntry = await _context.JournalEntry.FirstOrDefaultAsync(m => m.ID == id);
+            Entry = await _context.Entry.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (JournalEntry == null)
+            if (Entry == null)
             {
                 return NotFound();
             }
             return Page();
-        }
-
-        private IActionResult Page()
-        {
-            throw new NotImplementedException();
-        }
-
-        private IActionResult NotFound()
-        {
-            throw new NotImplementedException();
         }
     }
 }

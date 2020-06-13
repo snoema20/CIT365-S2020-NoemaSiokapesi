@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace My_Scripture_Journal
 {
@@ -6,6 +7,12 @@ namespace My_Scripture_Journal
     {
         public class My_Scripture_JournalContext
         {
+            public object Entry { get; internal set; }
+
+            internal Task SaveChangesAsync()
+            {
+                throw new NotImplementedException();
+            }
         }
 
         internal class My_ScriptureJournalContext

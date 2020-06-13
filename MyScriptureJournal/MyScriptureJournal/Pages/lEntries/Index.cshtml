@@ -1,11 +1,17 @@
-﻿@page
-@model MyScriptureJournal.Pages.Journal.IndexModel
+﻿@page "{id:int?}"
+@model My_Scripture_Journal.Pages.Entries.MultiSelectList
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Desk Orders";
 }
 
-<h1>Journal Entries</h1>
+<script language="C#" runat="server">
+    void LinkButton_Click(Object sender, EventArgs e)
+    {
+      Label1.Text = "Hello!";
+    }
+</script>
+<h1>Desk Orders</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -13,65 +19,85 @@
 
 <form>
     <p>
-        <select asp-for="SearchSelection" name="searchSelection">
-            <option value="">Field Selection</option>
-            <option value="Book">Books</option>
-            <option value="Notes">Notes</option>
-        </select>
-        <input type="text" asp-for="SearchString" />
+
+        <select asp-for="EntryBook" asp-items="Model.Books"></select>
+        Search Notes: <input type="text" asp-for="SearchString" />
+        Search By Book: <input type="text" asp-for="BookSearchString" />
         <input type="submit" value="Filter" />
+
+
+
     </p>
 </form>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.JournalEntry[0].Title)
-            </th>
-            <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort">
-                    @Html.DisplayNameFor(model => model.JournalEntry[0].EntryDate)
-                </a>
+
+                @Html.DisplayNameFor(model => model.Entry[0].StandardWork)
             </th>
             <th>
                 <a asp-page="./Index" asp-route-sortOrder="@Model.BookSort">
-                    @Html.DisplayNameFor(model => model.JournalEntry[0].Book)
+                    @Html.DisplayNameFor(model => model.Entry[0].Book)
                 </a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.JournalEntry[0].Reference)
+                @Html.DisplayNameFor(model => model.Entry[0].Chapter)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.JournalEntry[0].Notes)
+                @Html.DisplayNameFor(model => model.Entry[0].Note)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Entry[0].Verses)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Entry[0].Passage)
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort">
+                    @Html.DisplayNameFor(model => model.Entry[0].DatePosted)
+                </a>
+            </th>
+
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.JournalEntry)
+        @foreach (var item in Model.entryToPage)
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EntryDate)
+                    @Html.DisplayFor(modelItem => item.StandardWork)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Book)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Reference)
+                    @Html.DisplayFor(modelItem => item.Chapter)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Notes)
+                    @Html.DisplayFor(modelItem => item.Note)
                 </td>
                 <td>
-                    <a class="edit" asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                    <a class="update" asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                    <a class="delete" asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                    @Html.DisplayFor(modelItem => item.Verses)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Passage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DatePosted)
+                </td>
+
+                <td>
+
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+<a href="#" runat="server" onServerClick="LinkButton_Click">Click Me!</a>
+<p>Page @Model.pageNo of @Model.NoOfPages</p>
+<asp:Label id="Label1" runat="server" />
