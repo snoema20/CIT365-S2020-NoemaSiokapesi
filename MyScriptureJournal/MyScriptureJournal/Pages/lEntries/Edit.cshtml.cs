@@ -66,6 +66,11 @@ namespace My_Scripture_Journal.Pages.Entries
             return RedirectToPage("./Index");
         }
 
+        private bool EntryExists(object iD)
+        {
+            throw new NotImplementedException();
+        }
+
         private bool EntryExists(int id)
         {
             return _context.Entry.Any(e => e.ID == id);

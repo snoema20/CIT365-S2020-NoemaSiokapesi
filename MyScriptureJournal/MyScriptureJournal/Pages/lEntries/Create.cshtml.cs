@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using My_Scripture_Journal.Models;
 using MyScriptureJournal.Models;
 
 namespace My_Scripture_Journal.Pages.Entries
@@ -38,5 +39,12 @@ namespace My_Scripture_Journal.Pages.Entries
 
             return RedirectToPage("./Details");
         }
+    }
+
+    public class Entry
+    {
+        public object ID { get; internal set; }
+        public object Book { get; internal set; }
+        public bool DatePosted { get; internal set; }
     }
 }

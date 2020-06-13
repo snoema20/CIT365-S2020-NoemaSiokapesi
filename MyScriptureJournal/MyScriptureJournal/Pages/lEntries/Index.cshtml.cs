@@ -6,8 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using My_Scripture_Journal.Models;
-using PagedList;
 
 
 
@@ -106,7 +104,8 @@ namespace My_Scripture_Journal.Pages.Entries
 
             Books = new SelectList(await bookQuery.Distinct().ToListAsync());
             Entry = await entries.ToListAsync();
-            entryToPage = Entry.ToPagedList(pageNo, 3);
+            entryToPage = Entry.ToPagedList(pageNo,
+                                            3);
             NoOfPages = entryToPage.PageCount;
 
         }
@@ -116,6 +115,10 @@ namespace My_Scripture_Journal.Pages.Entries
             pageNo = 2;
         }
 
+    }
+
+    internal class My_Scripture_JournalContext
+    {
     }
 }
 

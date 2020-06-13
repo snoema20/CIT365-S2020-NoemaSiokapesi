@@ -1,6 +1,6 @@
 ﻿namespace MyScriptureJournal.Models
 {
-    internal class Pages
+    internal class ShortList
     {
         public static bool IsValid { get; internal set; }
     }

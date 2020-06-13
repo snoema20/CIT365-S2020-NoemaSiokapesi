@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace RazorPagesJournalEntry.Models
 {
-    public static class SeedData
+    public static class Seed
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
