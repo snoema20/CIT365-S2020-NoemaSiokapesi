@@ -6,5 +6,6 @@ namespace MvcMovie.Controllers
     {
         public SelectList Genres { get; set; }
         public System.Collections.Generic.List<Models.Movie> Movies { get; set; }
+        public string SearchString { get; internal set; }
     }
 }

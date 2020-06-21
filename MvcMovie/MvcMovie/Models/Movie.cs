@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 public class Movie
 {
     public int Id { get; set; }
+    public int ID { get; internal set; }
     [StringLength(60, MinimumLength = 3)]
     [Required]
     public string Title { get; set; }
