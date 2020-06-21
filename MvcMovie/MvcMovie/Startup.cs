@@ -53,13 +53,14 @@ namespace MvcMovie
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            _ = app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+
             app.UseMvc(routes =>
             {
-                routes.MapRoute(
+                _ = routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
