@@ -1,16 +1,18 @@
-﻿// Unused usings removed.
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using MvcMovie.Models;  // Enables public DbSet<Movie> Movie
 
-namespace MvcMovie.Data
+namespace MvcMovie.Models
 {
     public class MvcMovieContext : DbContext
     {
-        public MvcMovieContext(DbContextOptions<MvcMovieContext> options)
+        public MvcMovieContext (DbContextOptions<MvcMovieContext> options)
             : base(options)
         {
         }
 
-        public DbSet<Movie> Movie { get; set; }
+        public DbSet<MvcMovie.Models.Movie> Movie { get; set; }
     }
 }
