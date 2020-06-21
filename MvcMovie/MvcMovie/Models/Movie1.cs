@@ -1,14 +1,22 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MvcMovie.Models
 {
+
     public class Movie
     {
-        public string Title { get; internal set; }
-        public DateTime ReleaseDate { get; internal set; }
-        public string Genre { get; internal set; }
-        public string Rating { get; internal set; }
-        public decimal Price { get; internal set; }
-        public int? Id { get; internal set; }
+        public int Id { get; set; }
+        public string Title { get; set; }
+
+        [Display(Name = "Release Date")]
+        [DataType(DataType.Date)]
+        public DateTime ReleaseDate { get; set; }
+        public string Genre { get; set; }
+
+        [Column(TypeName = "decimal(18, 2)")]
+        public decimal Price { get; set; }
+        public string Rating { get; set; }
     }
 }
