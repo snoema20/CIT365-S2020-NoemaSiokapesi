@@ -11,13 +11,5 @@ namespace MvcMovie.Controllers
         {
             return "This is my default action...";
         }
-
-        // 
-        // GET: /HelloWorld/Welcome/ 
-
-        public string Welcome()
-        {
-            return "This is the Welcome action method...";
-        }
     }
 }
