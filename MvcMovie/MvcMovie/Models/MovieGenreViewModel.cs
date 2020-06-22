@@ -1,13 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using System.Collections.Generic;
+﻿// Unused usings removed.
+using Microsoft.EntityFrameworkCore;
+using MvcMovie.Models;  // Enables public DbSet<Movie> Movie
 
-namespace MvcMovie.Models
+namespace MvcMovie.Data
 {
-    public class MovieGenreViewModel
+    public class MvcMovieContext : DbContext
     {
-        public List<Movie> Movies { get; set; }
-        public SelectList Genres { get; set; }
-        public string MovieGenre { get; set; }
-        public string SearchString { get; set; }
+        public MvcMovieContext(DbContextOptions<MvcMovieContext> options)
+            : base(options)
+        {
+        }
+
+        public DbSet<Movie> Movie { get; set; }
     }
 }
