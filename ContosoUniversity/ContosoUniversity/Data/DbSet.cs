@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ContosoUniversity.Models;
+using System;
 using System.Threading.Tasks;
 
 namespace ContosoUniversity.Data
@@ -15,7 +16,27 @@ namespace ContosoUniversity.Data
             throw new NotImplementedException();
         }
 
+        internal bool Any()
+        {
+            throw new NotImplementedException();
+        }
+
         internal bool Any(Func<object, bool> p)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void Add(Enrollment e)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void Add(Student s)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void Add(Course c)
         {
             throw new NotImplementedException();
         }
