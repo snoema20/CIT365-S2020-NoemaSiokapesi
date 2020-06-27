@@ -14,5 +14,12 @@ namespace ContosoUniversity.Models.SchoolViewModels
 
     public class Instructor
     {
+        public List<CourseAssignment> CourseAssignments { get; internal set; }
+        public int ID { get; internal set; }
+
+        public static implicit operator Instructor(Models.Instructor v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
