@@ -13,15 +13,16 @@ namespace ContosoUnniversity.PagesStudents
     public class EditModel : PageModel
     {
         private readonly ContosoUniversity.Models.SchoolContext _context;
-        private object[] id;
 
-        public EditModel(ContosoUniversity.Models.SchoolContext context)
+        public EditModel(SchoolContext context)
         {
             _context = context;
         }
 
         [BindProperty]
         public Student Student { get; set; }
+
+        public object[] Id { get; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -49,7 +50,7 @@ namespace ContosoUnniversity.PagesStudents
 
             try
             {
-                var studentToUpdate = await _context.Student.FindAsync(id);
+                var studentToUpdate = await _context.Student.FindAsync(Id);
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
