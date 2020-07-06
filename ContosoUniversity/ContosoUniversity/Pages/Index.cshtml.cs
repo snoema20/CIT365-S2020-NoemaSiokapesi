@@ -7,8 +7,22 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ContosoUniversity.Pages
 {
-    public class IndexModel : PageModel
+
+public class IndexModel : PageModel
     {
+        private readonly SchoolContext _context;
+        private SchoolContext context;
+
+        public IndexModel()
+        {
+            _context = context;
+        }
+
+        public string NameSort { get; set; }
+        public string DateSort { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
+    
         public void OnGet()
         {
 

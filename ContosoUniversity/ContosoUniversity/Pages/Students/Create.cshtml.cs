@@ -12,9 +12,8 @@ namespace ContosoUniversity.Pages.Students
     public class CreateModel : PageModel
     {
         private readonly ContosoUniversity.Models.SchoolContext _context;
-        private Student emptyStudent;
 
-        public CreateModel(ContosoUniversity.Models.SchoolContext context)
+        public CreateModel(Models.SchoolContext context)
         {
             _context = context;
         }
@@ -27,6 +26,8 @@ namespace ContosoUniversity.Pages.Students
         [BindProperty]
         public Student Student { get; set; }
 
+        public Student EmptyStudent { get; }
+
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -36,7 +37,7 @@ namespace ContosoUniversity.Pages.Students
 
            
             {
-                _context.Student.Add(emptyStudent);
+                _context.Student.Add(EmptyStudent);
                 await _context.SaveChangesAsync();
                 return RedirectToPage("./Index");
             }
