@@ -13,15 +13,16 @@ namespace ContosoUniversity.Pages.Students
     public class EditModel : PageModel
     {
         private readonly ContosoUniversity.Models.SchoolContext _context;
-        private object[] id;
-
-        public EditModel(ContosoUniversity.Models.SchoolContext context)
+#pragma warning disable IDE0044 // Add readonly modifier
+        public EditModel(Models.SchoolContext context)
         {
-            _context = context;
+            _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
         [BindProperty]
         public Student Student { get; set; }
+        public object[] Id { get; set; }
+        public object[] Id1 { get => Id; set => Id = value; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -44,7 +45,7 @@ namespace ContosoUniversity.Pages.Students
             {
                 return Page();
             }
-            var studentToUpdate = await _context.Student.FindAsync(id);
+            var studentToUpdate = await _context.Student.FindAsync(Id);
             
 
             try

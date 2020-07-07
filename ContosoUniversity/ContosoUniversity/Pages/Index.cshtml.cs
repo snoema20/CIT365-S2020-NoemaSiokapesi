@@ -22,7 +22,9 @@ public class IndexModel : PageModel
         public string DateSort { get; set; }
         public string CurrentFilter { get; set; }
         public string CurrentSort { get; set; }
-    
+        internal SchoolContext Context { get => context; set => context = value; }
+        internal SchoolContext Context1 { get => context; set => context = value; }
+
         public void OnGet()
         {
 
