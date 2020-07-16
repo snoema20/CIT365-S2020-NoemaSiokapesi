@@ -349,3 +349,4 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 /Hibernet/nbproject/private/
+/Flash Card/nbproject/private/

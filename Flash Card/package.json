@@ -1,0 +1,8 @@
+{
+    "name": "Flash_Card",
+    "version": "1.0.0",
+    "keywords": ["util", "functional", "server", "client", "browser"],
+    "author": "pesin",
+    "contributors": [],
+    "dependencies": {}
+}
