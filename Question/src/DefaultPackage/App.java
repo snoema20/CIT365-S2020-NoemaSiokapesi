@@ -15,8 +15,8 @@ public class App {
 				"Algorithms-methods that perform useful computations on objects that implement collection interfaces\n(c)implements the List interface\r\n" + 
 				"Doubly-linked list implementation of the List and Deque interfaces.\n";
 		String q3 = "What is Jackson JSON?\n"
-				+ "(a)JSON (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate\r\n" +
-				"(b)Cookies?\n";
+				+ "(a)Is a lightweight data-interchange format\r\n" + "(b)Is a web server\r\n" +
+				"(c)Cookies?\n";
 		String q4 = "What is HTTP?\n"
 				+ "(a)The HTTP/URL is an object used by a servlet to track a user's interaction with a Web application across multiple HTTP requests\r\n" + 
 				"(b)The servlet mapping defines an association between a URL pattern and a servlet. The mapping is used to map requests to Servlets\r\n" +
@@ -38,7 +38,7 @@ public class App {
 		String q8 = "What is Servlets?\n"
 				+ "(a)Is open source testing framework developed for unit testing java code and is now the default framework for testing Java development\n" +
 				"(b)Is a Java programming language class that is used to extend the capabilities of servers that host applications accessed by means of a request-response programming model\r\n" +
-				"(c)a & b\r\n" + "(d)\r\n";
+				"(c)a & b\r\n" + "(d)None of the Above\r\n";
 	Question [] questions = {
 			
 			
