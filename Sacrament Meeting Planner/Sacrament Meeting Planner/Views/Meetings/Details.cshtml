@@ -1,0 +1,94 @@
+﻿@model SacrementPlanner.Models.Meeting
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Meeting Details</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MeetingDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MeetingDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Presiding)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Presiding)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Conducting)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Conducting)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SpecialNotes)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SpecialNotes)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.OpeningHymn)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.OpeningHymn)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Invocation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Invocation)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SacamentHymn)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SacamentHymn)
+        </dd>
+        @if (Model.SpeakerAssigments.Count > 0)
+        {
+            int i = 1;
+            foreach (var item in Model.SpeakerAssigments.OrderBy(m => m.SpeakerName))
+            {
+
+                <dt class=" col-sm-2">
+                    Speaker #@i
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(modelItem => item.SpeakerName)
+                </dd>
+                i++;
+            }
+        }
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntermediateHymn)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntermediateHymn)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ClosingHymn)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ClosingHymn)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Benediction)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Benediction)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit Meeting</a> |
+    <a asp-controller="SpeakerAssignments" asp-action="Index" asp-route-id="@Model.ID">Speaker Details</a> |
+    <a asp-action="Index">Back to Meeting List</a>
+</div>

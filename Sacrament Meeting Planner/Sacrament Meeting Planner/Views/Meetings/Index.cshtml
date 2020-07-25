@@ -1,0 +1,92 @@
+﻿@model IEnumerable<SacrementPlanner.Models.Meeting>
+
+@{
+    ViewData["Title"] = "Sacrament Meeting Planner";
+}
+
+<h1>Sacrament Meeting Planner</h1>
+
+<p>
+    <a asp-action="Create">Add New Meeting</a>
+</p>
+
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by Conducting: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-secondary btn-sm" /> |
+            <a asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.MeetingDate)</a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Presiding)
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["ConductSortParm"]">@Html.DisplayNameFor(model => model.Conducting)</a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpecialNotes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Invocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Benediction)
+            </th>
+            <th>
+                Speakers
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MeetingDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Presiding)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Conducting)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SpecialNotes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Invocation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Benediction)
+                </td>
+                <td style="text-align:center">
+                    @if (item.SpeakerAssigments.Count > 0)
+                    {
+                        <p asp-controller="SpeakerAssigments" asp-action="Index" asp-route-id="@item.ID">@Html.DisplayFor(modelItem => item.SpeakerAssigments.Count)</p>
+                    }
+                    else
+                    {
+                        <p asp-controller="SpeakerAssigments" asp-action="Create" asp-route-id="@item.ID">No Speakers</p>
+                    }
+                    <a asp-controller="SpeakerAssignments" asp-action="Create" asp-route-id="@item.ID" class="btn btn-outline-secondary btn-sm">Add</a><br>
+                    <a asp-controller="SpeakerAssignments" asp-action="Index" asp-route-id="@item.ID" class="btn btn-outline-secondary btn-sm">View</a>
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-secondary btn-sm">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.ID" class="btn btn-secondary btn-sm">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-secondary btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

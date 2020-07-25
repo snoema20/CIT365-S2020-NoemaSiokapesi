@@ -1,0 +1,68 @@
+﻿@model IEnumerable<SacrementPlanner.Models.SpeakerAssignment>
+
+@{
+    ViewData["Title"] = "Speaker Assignments";
+    string showMeetingDate = "Meeting Date: ";
+    if (Model.Count() > 0)
+    {
+        DateTime meetingDate = Convert.ToDateTime(Model.ElementAt(0).Meeting.MeetingDate);
+        showMeetingDate = "Meeting Date: " + meetingDate.ToString("MM/dd/yyyy");
+    }
+    else
+    {
+        showMeetingDate = "No Speakers Yet";
+    }
+
+}
+
+<h1>@showMeetingDate</h1>
+
+<p>
+    <a asp-action="Create" asp-route-id="@ViewData["MeetingID"]">Add Another Speaker For This Meeting</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SpeakerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpeakerTopic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meeting)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.MeetingID)
+                </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SpeakerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SpeakerTopic)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Meeting.MeetingDate)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.MeetingID)
+                    </td>*@
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>
+    <a asp-controller="Meetings" asp-action="Index">Back to All Meeting List</a> |
+    <a asp-controller="Meetings" asp-action="Details" asp-route-id="@ViewData["MeetingID"]">Back to Current Meeting Details</a>
+</p>

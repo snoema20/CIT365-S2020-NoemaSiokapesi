@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Sacrament_Meeting_Planner.Models;
+using SacrementPlanner.Models;
 
-namespace Sacrament_Meeting_Planner.Controllers
+namespace SacrementPlanner.Controllers
 {
     public class HomeController : Controller
     {
@@ -17,19 +17,10 @@ namespace Sacrament_Meeting_Planner.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Purpose of this Project.";
-
             return View();
         }
 
         public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
         {
             return View();
         }

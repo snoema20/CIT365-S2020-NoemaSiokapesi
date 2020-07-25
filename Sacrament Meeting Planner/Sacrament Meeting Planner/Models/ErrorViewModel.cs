@@ -1,6 +1,6 @@
 using System;
 
-namespace Sacrament_Meeting_Planner.Models
+namespace SacrementPlanner.Models
 {
     public class ErrorViewModel
     {
