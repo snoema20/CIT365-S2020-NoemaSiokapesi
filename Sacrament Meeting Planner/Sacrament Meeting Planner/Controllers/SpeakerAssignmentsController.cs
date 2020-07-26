@@ -124,3 +124,68 @@ namespace SacrementPlanner.Controllers
                 return NotFound();
             }
 
+            var speakerToUpdate = await _context.SpeakerAssignment
+                .FirstOrDefaultAsync(c => c.ID == id);
+
+            if (await TryUpdateModelAsync<SpeakerAssignment>(speakerToUpdate,
+                "",
+                s => s.MeetingID, s => s.SpeakerName, s => s.SpeakerTopic))
+            {
+                try
+                {
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException /* ex */)
+                {
+                    //Log the error (uncomment ex variable name and write a log.)
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                        "Try again, and if the problem persists, " +
+                        "see your system administrator.");
+                }
+                return RedirectToAction(nameof(Index), new { id = speakerToUpdate.MeetingID });
+            }
+
+            return View(speakerToUpdate);
+        }
+
+
+        // GET: SpeakerAssignments/Delete/5
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var speakerAssignment = await _context.SpeakerAssignment
+                .Include(s => s.Meeting)
+                .FirstOrDefaultAsync(m => m.ID == id);
+            if (speakerAssignment == null)
+            {
+                return NotFound();
+            }
+
+            return View(speakerAssignment);
+        }
+
+        // POST: SpeakerAssignments/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var speakerAssignment = await _context.SpeakerAssignment.FindAsync(id);
+            if (speakerAssignment == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            _context.SpeakerAssignment.Remove(speakerAssignment);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index), new { id = speakerAssignment.MeetingID });
+        }
+
+        private bool SpeakerAssignmentExists(int id)
+        {
+            return _context.SpeakerAssignment.Any(e => e.ID == id);
+        }
+    }
+}

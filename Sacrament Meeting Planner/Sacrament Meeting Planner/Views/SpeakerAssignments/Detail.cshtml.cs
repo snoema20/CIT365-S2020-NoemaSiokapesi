@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Sacrament Meeting Planner.Views.SpeakerAssignments
+namespace Sacrement Meeting Planner.Views.SpeakerAssignments
 {
-    public class DetailsModel : PageModel
+    public class DetailModel : PageModel
     {
         public void OnGet()
         {
